@@ -100,12 +100,27 @@ class ChartWeb extends Component {
                     </style>
                     <head>
                         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-                        <script src="https://code.highcharts.com/highcharts.js"></script>
+                        <script src="https://code.highcharts.com/stock/highstock.js"></script>
                         <script src="https://code.highcharts.com/modules/exporting.js"></script>
                         <script>
                         $(function () {
-                            Highcharts.chart('container', `,
-            end:`           );
+                          Highcharts.setOptions({
+                            global:{
+                              useUTC : false
+                            },lang: {
+                              noData: '暂无数据',
+                              rangeSelectorFrom:'从',
+                              rangeSelectorTo:'到',
+                              rangeSelectorZoom:'范围',
+                              months: ['一月','二月','三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                              shortMonths: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一', '十二'],
+                              weekdays: ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+                            }
+                          });
+                        });
+                        $(function () {
+                            Highcharts.stockChart('container', `,
+          end:`           );
                         });
                         </script>
                     </head>
